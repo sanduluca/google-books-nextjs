@@ -1,45 +1,55 @@
-# Next.js with TypeScript example
+# The Book Empire
 
-## How to use
+### Tehnologies
+- Next.js
+- Typescript
+- Material UI
+- react-query
+- Google Books API
 
-Download the example [or clone the repo](https://github.com/mui/material-ui):
+#### For screenshots check the docs folder
 
-<!-- #default-branch-switch -->
+<img src="docs/main-desktop.png">
 
-```sh
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/nextjs-with-typescript
-cd nextjs-with-typescript
-```
 
-Install it and run:
+### Install it and run:
 
 ```sh
 npm install
 npm run dev
 ```
 
-or:
 
-<!-- #default-branch-switch -->
+### TODO:
 
-[![Edit on StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/mui/material-ui/tree/master/examples/nextjs-with-typescript)
+Book List Screen Main Features:
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui/material-ui/tree/master/examples/nextjs-with-typescript)
+- [x] Display list of books with possibility to search via dedicated text input
+- [x] Search method should be triggered only after user finishes typing
+- [x] List of books should be displayed in max 4 columns
+- [x] Screen should be responsive
+- [x] When user clicks on one book, application displays detailed information (next screen)
+- [x] When user comes back from an internal URL to current Screen, the application should display latest search text
+and books
+- Following information should be displayed:
+    - [x] Title
+    - [x]Thumbnail
+    - [x] Subtitle (if available)
+    - [ ] Search Info (if available)
 
-## The idea behind the example
+Book Detailed Screen Main Features:
 
-The project uses [Next.js](https://github.com/vercel/next.js), which is a framework for server-rendered React apps.
-It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5. If you prefer, you can [use styled-components instead](https://mui.com/material-ui/guides/interoperability/#styled-components).
+- [x] Displays detailed information about a book
+- [x] On page refresh, same information should be displayed
+- [ ] Possibility to add displayed book to Favorite List
+- Following information should be displayed:
+    - [x] Title
+    - [x] Thumbnail
+    - [x] Subtitle (if available)
+    - [ ] Search Info (if available)
 
-## The link component
-
-Next.js has [a custom Link component](https://nextjs.org/docs/api-reference/next/link).
-The example folder provides adapters for usage with MUI.
-More information [in the documentation](https://mui.com/material-ui/guides/routing/#next-js).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/material-ui/getting-started/templates/) section.
+Favorite List Screen Main Features:
+- [ ] Displays list of favorite books marked by user.
+- [ ] Screen should look the same as Book List Screen, but without search input
+- [ ] If the user saves some books as favorites and then closes the browser/page, then when the user will come back
+he should be able to see the list of books that was marked as favorite.
