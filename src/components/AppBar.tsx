@@ -11,9 +11,16 @@ export default function AppBar() {
     <MuiAppBar position="relative">
       <Toolbar>
         <LibraryBooksIcon sx={{ mr: 2 }} />
-        <Typography variant="h6" color="inherit" noWrap>
+
+        <Typography variant="h6"
+          href="/" component={'a'}
+          color="inherit"
+          noWrap
+          sx={{ textDecoration: 'none'}}
+        >
           The Book Empire
         </Typography>
+
       </Toolbar>
     </MuiAppBar>
 
