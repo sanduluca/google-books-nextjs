@@ -8,8 +8,32 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import Link from '../Link';
 
-export default function BookCard() {
+export interface Volume {
+  id: string
+  selfLink: string
+  volumeInfo: {
+    title: string
+    subtitle: string
+    description: string
+    authors: string[]
+    publisher: string
+    publishedDate: string
+    imageLinks: {
+      smallThumbnail: string
+      thumbnail: string
+    }
+  }
+
+  categories: string[]
+  pageCount: number
+  averageRating: number
+  ratingsCount: number
+}
+
+
+export default function BookCard({ volume, hideViewBtn }: { volume: Volume, hideViewBtn?: boolean }) {
   return (
 
     <Grid item xs={12} sm={6} md={3}>
@@ -18,21 +42,21 @@ export default function BookCard() {
       >
         <CardMedia
           component="img"
-          sx={{
-          }}
-          image="https://source.unsplash.com/random"
-          alt="random"
+          image={volume.volumeInfo.imageLinks?.thumbnail}
+          alt={volume.volumeInfo.title}
         />
         <CardContent sx={{ flexGrow: 1 }}>
-          <Typography gutterBottom variant="h5" component="h2">
-            Heading
+          <Typography gutterBottom variant="h6" component="h2">
+            {volume.volumeInfo.title}
           </Typography>
           <Typography>
-            'A masterpiece of poignant brilliance . . . heartbreaking' Guardian Charlie Gordon, a floor sweeper born with an unusually low IQ, has been chosen as the perfect subject for an experimental surgery that doctors hope will increase his intelligence - a procedure that has been highly successful when tested on a lab mouse named Algernon. All Charlie wants is to be smart and have friends, but the treatement turns him into a genius. Then Algernon begins to fade. What will become of Charlie?
+            {volume.volumeInfo.subtitle}
           </Typography>
         </CardContent>
-        <CardActions style={{ justifyContent: 'space-between' }}>
-          <Button size="large">View</Button>
+        <CardActions style={{ justifyContent: hideViewBtn ? 'flex-end' : 'space-between' }}>
+          {!hideViewBtn && <Button variant="text" component={Link} noLinkStyle href={`/book/${volume.id}`}>
+            View
+          </Button>}
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
